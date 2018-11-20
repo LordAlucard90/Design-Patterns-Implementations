@@ -1,22 +1,22 @@
 import Factories.*;
-import Products.Direction;
-import Products.Door;
-import Products.Maze;
-import Products.Room;
+import Products.*;
 
 public class MazeGame {
     public static void main(String[] args) {
         // create maze
         MazeFactory mazeFactory = new MazeFactory();
         Maze maze = MazeGame.createMaze(mazeFactory);
-
-        // create enchanted maze
-        MazeFactory enchantedMazeFactory = new EnchantedMazeFactory();
-        Maze enchantedMaze = MazeGame.createMaze(enchantedMazeFactory);
+        assert maze.getRoom(1) != null;
 
         // create bombed maze
         MazeFactory bombedMazeFactory = new BombedMazeFactory();
         Maze bombedMaze = MazeGame.createMaze(bombedMazeFactory);
+        assert bombedMaze.getRoom(1) instanceof RoomWithBomb;
+
+        // create enchanted maze
+        MazeFactory enchantedMazeFactory = new EnchantedMazeFactory();
+        Maze enchantedMaze = MazeGame.createMaze(enchantedMazeFactory);
+        assert enchantedMaze.getRoom(1) instanceof EnchantedRoom;
     }
 
     private static Maze createMaze(MazeFactory factory){

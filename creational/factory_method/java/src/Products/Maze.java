@@ -10,7 +10,7 @@ public class Maze {
         rooms.put(room.getNumber(), room);
     }
 
-    public Room getRoom(int number) {
+    public Room getRoom(int number){
         if(rooms.containsKey(number)){
             return rooms.get(number);
         }
