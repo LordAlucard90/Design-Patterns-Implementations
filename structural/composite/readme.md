@@ -12,14 +12,14 @@ Composites objects into tree structures to represent hierarchies and use single 
   - Implements the behavior common to all classes if needed.
   - Declares an interface for the access and management of his children.
   - Could declare a interface to access at the parent component of the structure.
-- **Leaf** .
+- **Leaf**
    - Represents the leaves of the composition: the objects that have no children.
    - Defines the behavior of the primitive objects of the composition.
-- **Composite** .
+- **Composite**
   - Defines the behavior of the objects who have children.
   - Stores all his children.
    - Implements the operations for the access and management of his children.
-- **Client** .
+- **Client** 
    - Manages the objects in the composition trough the implementation of the Component interface .
 
 ## Collaborations

@@ -12,11 +12,11 @@ The Adapter permits to different classes to work together when thi s could not b
 ## Participants
 - **Target**
    - Defines the domain's specific interface used by the Client.
-- **Client** .
+- **Client**
    - Works with objects similar to Target.
-- **Adaptee** .
+- **Adaptee**
    - Has a specific interface who must be adaptet.
-- **Adapter** .
+- **Adapter** 
    - Adapts the Adaptee's interface to the Target one.
 
 ## Collaborations
