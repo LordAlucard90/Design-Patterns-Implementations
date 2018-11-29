@@ -1,30 +1,24 @@
 package Adaptee;
 
-import java.util.HashMap;
+import java.util.Map;
 
 public class TextView{
 
-    private HashMap<String, Double> origin;
-    private HashMap<String, Double> extent;
+    private Map<String, Double> origin;
+    private Map<String, Double> extent;
     private String text;
 
     public TextView(Double bottom, Double left, Double width, Double height, String text){
-        this.origin = new HashMap<String, Double>() {{
-            put("bottom", bottom);
-            put("y", left);
-        }};
-        this.extent = new HashMap<String, Double>() {{
-            put("width", width);
-            put("height", height);
-        }};
+        this.origin = Map.ofEntries(Map.entry("bottom", bottom), Map.entry("y", left));
+        this.extent = Map.ofEntries(Map.entry("width", width), Map.entry("height", height));
         this.text = text;
     }
 
-    public HashMap<String, Double> getOrigin() {
+    public Map<String, Double> getOrigin() {
         return origin;
     }
 
-    public HashMap<String, Double> getExtent() {
+    public Map<String, Double> getExtent() {
         return extent;
     }
 

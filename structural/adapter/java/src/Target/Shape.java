@@ -1,7 +1,7 @@
 package Target;
 
-import java.util.HashMap;
+import java.util.Map;
 
 public interface Shape {
-    HashMap<String, Point> getBoundingBox();
+    Map<String, Point> getBoundingBox();
 }

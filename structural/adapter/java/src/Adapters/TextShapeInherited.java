@@ -5,6 +5,7 @@ import Target.Point;
 import Target.Shape;
 
 import java.util.HashMap;
+import java.util.Map;
 
 public class TextShapeInherited extends TextView implements Shape {
 
@@ -13,20 +14,19 @@ public class TextShapeInherited extends TextView implements Shape {
     }
 
     @Override
-    public HashMap<String, Point> getBoundingBox() {
-        HashMap<String, Double> origin = super.getOrigin();
-        HashMap<String, Double> extent = super.getExtent();
+    public Map<String, Point> getBoundingBox() {
+        Map<String, Double> origin = super.getOrigin();
+        Map<String, Double> extent = super.getExtent();
 
         Double bottom = origin.get("bottom");
         Double left = origin.get("left");
         Double width = extent.get("width");
         Double height = extent.get("height");
 
-        return new HashMap<String, Point>(){{
-            put("bottomLeft", new Point(bottom, left));
-            put("topRight", new Point(bottom + height, left + width));
-        }};
-
+        return Map.ofEntries(
+                Map.entry("bottomLeft", new Point(bottom, left)),
+                Map.entry("topRight", new Point(bottom + height, left + width))
+        );
     }
 
     @Override
