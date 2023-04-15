@@ -13,7 +13,7 @@ public class EnchantedMazeFactory extends MazeFactory {
         return new DoorNeedingSpell(source, destination);
     }
 
-    protected Spell castSpell(){
+    protected Spell castSpell() {
         return new Spell();
     }
 }

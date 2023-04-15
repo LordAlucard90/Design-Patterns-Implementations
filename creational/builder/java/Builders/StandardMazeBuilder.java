@@ -12,7 +12,7 @@ public class StandardMazeBuilder implements MazeBuilder {
 
     @Override
     public void buildRoom(int number) {
-        if(this.maze.getRoom(number) == null){
+        if (this.maze.getRoom(number) == null) {
             Room room = new Room(number);
             room.setSide(Direction.North, new Wall());
             room.setSide(Direction.South, new Wall());
@@ -23,9 +23,9 @@ public class StandardMazeBuilder implements MazeBuilder {
     }
 
     @Override
-    public void buildDoor(int sourceRoom, int destinationRooom) {
+    public void buildDoor(int sourceRoom, int destinationRoom) {
         Room source = this.maze.getRoom(sourceRoom);
-        Room destination = this.maze.getRoom(destinationRooom);
+        Room destination = this.maze.getRoom(destinationRoom);
 
         Door door = new Door(source, destination);
 
@@ -35,11 +35,11 @@ public class StandardMazeBuilder implements MazeBuilder {
 
     @Override
     public Maze getMaze() {
-        return null;
+        return maze;
     }
 
-    private Direction commonWall(Room source, Room destination){
-        if(source.getNumber() < destination.getNumber()){
+    private Direction commonWall(Room source, Room destination) {
+        if (source.getNumber() < destination.getNumber()) {
             return Direction.North;
         } else {
             return Direction.South;

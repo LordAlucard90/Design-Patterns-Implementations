@@ -17,14 +17,14 @@ public class Room implements MapSite {
 
     @Override
     public void enter() {
-        System.out.println("Welcome in Room "+number);
+        System.out.println("Welcome in Room " + number);
     }
 
-    public void setSide(Direction direction, MapSite site){
+    public void setSide(Direction direction, MapSite site) {
         this.sides.put(direction, site);
     }
 
-    public MapSite getSide(Direction direction, MapSite site){
+    public MapSite getSide(Direction direction, MapSite site) {
         return sides.get(direction);
     }
 

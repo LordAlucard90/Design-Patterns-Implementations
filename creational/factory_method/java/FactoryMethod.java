@@ -3,7 +3,7 @@ import Products.EnchantedRoom;
 import Products.Maze;
 import Products.RoomWithBomb;
 
-public class Main {
+public class FactoryMethod {
     public static void main(String[] args) {
         // create standard maze
         Maze standardMaze = new MazeGame().createMaze();

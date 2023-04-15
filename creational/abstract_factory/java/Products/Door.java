@@ -13,18 +13,18 @@ public class Door implements MapSite {
 
     @Override
     public void enter() {
-        if(isOpen){
+        if (isOpen) {
             System.out.println("You can enter.");
         } else {
             System.out.println("You shall not pass!");
         }
     }
 
-    public void open(){
+    public void open() {
         isOpen = true;
     }
 
-    public void close(){
+    public void close() {
         isOpen = false;
     }
 }

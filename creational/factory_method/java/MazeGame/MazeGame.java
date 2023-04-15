@@ -3,7 +3,7 @@ package MazeGame;
 import Products.*;
 
 public class MazeGame {
-    public Maze createMaze(){
+    public Maze createMaze() {
         Maze maze = makeMaze();
         Room room1 = makeRoom(1);
         Room room2 = makeRoom(2);

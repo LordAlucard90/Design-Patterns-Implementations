@@ -1,7 +1,7 @@
 package Products;
 
 public class EnchantedRoom extends Room {
-    private Spell spell;
+    private final Spell spell;
 
     public EnchantedRoom(Spell spell) {
         super();

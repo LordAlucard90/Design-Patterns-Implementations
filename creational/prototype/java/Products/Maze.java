@@ -13,12 +13,12 @@ public class Maze {
         this.rooms = maze.rooms;
     }
 
-    public void addRoom(Room room){
+    public void addRoom(Room room) {
         rooms.put(room.getNumber(), room);
     }
 
     public Room getRoom(int number) {
-        if(rooms.containsKey(number)){
+        if (rooms.containsKey(number)) {
             return rooms.get(number);
         }
         return null;

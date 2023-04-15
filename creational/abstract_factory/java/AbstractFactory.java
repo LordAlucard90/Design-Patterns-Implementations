@@ -1,40 +1,27 @@
 import Factories.*;
 import Products.*;
 
-public class MazeGame {
+public class AbstractFactory {
     public static void main(String[] args) {
         // create maze
-        MazePrototypeFactory standardmazeFactory= new MazePrototypeFactory(
-                new Maze(),
-                new Wall(),
-                new Room(),
-                new Door()
-        );
-        Maze maze = MazeGame.createMaze(standardmazeFactory);
+        MazeFactory mazeFactory = new MazeFactory();
+        Maze maze = AbstractFactory.createMaze(mazeFactory);
         assert maze.getRoom(1) != null;
 
         // create bombed maze
-        MazePrototypeFactory bombedMazeFactory = new MazePrototypeFactory(
-                new Maze(),
-                new BombedWall(),
-                new RoomWithBomb(),
-                new Door()
-        );
-        Maze bombedMaze = MazeGame.createMaze(bombedMazeFactory);
+        MazeFactory bombedMazeFactory = new BombedMazeFactory();
+        Maze bombedMaze = AbstractFactory.createMaze(bombedMazeFactory);
+        assert bombedMaze.getRoom(1) != null;
         assert bombedMaze.getRoom(1) instanceof RoomWithBomb;
 
         // create enchanted maze
-        MazePrototypeFactory enchantedMazeFactory = new MazePrototypeFactory(
-                new Maze(),
-                new Wall(),
-                new EnchantedRoom(new Spell()),
-                new DoorNeedingSpell()
-        );
-        Maze enchantedMaze = MazeGame.createMaze(enchantedMazeFactory);
+        MazeFactory enchantedMazeFactory = new EnchantedMazeFactory();
+        Maze enchantedMaze = AbstractFactory.createMaze(enchantedMazeFactory);
+        assert enchantedMaze.getRoom(1) != null;
         assert enchantedMaze.getRoom(1) instanceof EnchantedRoom;
     }
 
-    private static Maze createMaze(MazePrototypeFactory factory){
+    private static Maze createMaze(MazeFactory factory) {
         Maze maze = factory.makeMaze();
         Room room1 = factory.makeRoom(1);
         Room room2 = factory.makeRoom(2);

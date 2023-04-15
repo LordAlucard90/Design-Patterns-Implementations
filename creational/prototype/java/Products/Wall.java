@@ -1,9 +1,11 @@
 package Products;
 
 public class Wall implements MapSite {
-    public Wall() {}
+    public Wall() {
+    }
 
-    protected Wall(Wall wall) {}
+    protected Wall(Wall wall) {
+    }
 
     @Override
     public void enter() {

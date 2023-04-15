@@ -8,7 +8,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class TextShapeComposed implements Shape {
-    private TextView textView;
+    private final TextView textView;
 
     public TextShapeComposed(Double bottom, Double left, Double width, Double height, String text) {
         this.textView = new TextView(bottom, left, width, height, text);
@@ -19,8 +19,8 @@ public class TextShapeComposed implements Shape {
         Map<String, Double> origin = this.textView.getOrigin();
         Map<String, Double> extent = this.textView.getExtent();
 
-        Double bottom = origin.get("bottom");
-        Double left = origin.get("left");
+        double bottom = origin.get("bottom");
+        Double left = origin.get("y");
         Double width = extent.get("width");
         Double height = extent.get("height");
 

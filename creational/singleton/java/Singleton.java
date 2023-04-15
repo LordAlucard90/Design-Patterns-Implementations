@@ -4,8 +4,8 @@ public class Singleton {
     private Singleton() {
     }
 
-    public static Singleton getInstance(){
-        if(Singleton.instance == null){
+    public static Singleton getInstance() {
+        if (Singleton.instance == null) {
             Singleton.instance = new Singleton();
         }
         return Singleton.instance;

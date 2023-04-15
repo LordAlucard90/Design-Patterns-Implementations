@@ -19,7 +19,7 @@ public class TextShapeInherited extends TextView implements Shape {
         Map<String, Double> extent = super.getExtent();
 
         Double bottom = origin.get("bottom");
-        Double left = origin.get("left");
+        Double left = origin.get("y");
         Double width = extent.get("width");
         Double height = extent.get("height");
 

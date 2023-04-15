@@ -13,7 +13,7 @@ public class EnchantedMazeGame extends MazeGame {
         return new DoorNeedingSpell(source, destination);
     }
 
-    protected Spell castSpell(){
+    protected Spell castSpell() {
         return new Spell();
     }
 }

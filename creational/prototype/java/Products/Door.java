@@ -12,6 +12,7 @@ public class Door implements MapSite {
     protected Door(Door door) {
         this.source = door.source;
         this.destination = door.destination;
+        this.isOpen = false;
     }
 
     @Override

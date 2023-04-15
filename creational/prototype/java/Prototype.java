@@ -1,25 +1,40 @@
 import Factories.*;
 import Products.*;
 
-public class MazeGame {
+public class Prototype {
     public static void main(String[] args) {
         // create maze
-        MazeFactory mazeFactory = new MazeFactory();
-        Maze maze = MazeGame.createMaze(mazeFactory);
+        MazePrototypeFactory standardMazeFactory = new MazePrototypeFactory(
+                new Maze(),
+                new Wall(),
+                new Room(),
+                new Door()
+        );
+        Maze maze = Prototype.createMaze(standardMazeFactory);
         assert maze.getRoom(1) != null;
 
         // create bombed maze
-        MazeFactory bombedMazeFactory = new BombedMazeFactory();
-        Maze bombedMaze = MazeGame.createMaze(bombedMazeFactory);
+        MazePrototypeFactory bombedMazeFactory = new MazePrototypeFactory(
+                new Maze(),
+                new BombedWall(),
+                new RoomWithBomb(),
+                new Door()
+        );
+        Maze bombedMaze = Prototype.createMaze(bombedMazeFactory);
         assert bombedMaze.getRoom(1) instanceof RoomWithBomb;
 
         // create enchanted maze
-        MazeFactory enchantedMazeFactory = new EnchantedMazeFactory();
-        Maze enchantedMaze = MazeGame.createMaze(enchantedMazeFactory);
+        MazePrototypeFactory enchantedMazeFactory = new MazePrototypeFactory(
+                new Maze(),
+                new Wall(),
+                new EnchantedRoom(new Spell()),
+                new DoorNeedingSpell()
+        );
+        Maze enchantedMaze = Prototype.createMaze(enchantedMazeFactory);
         assert enchantedMaze.getRoom(1) instanceof EnchantedRoom;
     }
 
-    private static Maze createMaze(MazeFactory factory){
+    private static Maze createMaze(MazePrototypeFactory factory) {
         Maze maze = factory.makeMaze();
         Room room1 = factory.makeRoom(1);
         Room room2 = factory.makeRoom(2);
